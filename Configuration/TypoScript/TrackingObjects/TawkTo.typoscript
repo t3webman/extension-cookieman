@@ -1,0 +1,61 @@
+plugin.tx_cookieman.settings.trackingObjects {
+    TawkTo {
+        inject (
+            <script data-what="TawkTo" src="/typo3conf/ext/cookieman/Resources/Public/Js/Injects/example-inject.js"></script>
+        )
+# example:
+#        inject (
+#<!--Start of Tawk.to Script-->
+#<script type="text/javascript">
+#    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+#    (function(){
+#        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+#        s1.async=true;
+#        s1.src='https://embed.tawk.to/YOUR_WIDGET_KEY';
+#        s1.charset='UTF-8';
+#        s1.setAttribute('crossorigin','*');
+#        s0.parentNode.insertBefore(s1,s0);
+#    })();
+#</script>
+#<!--End of Tawk.to Script-->
+#        )
+        show {
+            # https://www.tawk.to/privacy-policy/
+            # https://help.tawk.to/article/what-are-tawkto-cookies-and-what-do-they-do
+            tawkUUID {
+                duration = 6
+                durationUnit = months
+                type = cookie_http+html
+                provider = TawkTo
+            }
+
+            _tawkuuid {
+                duration = 6
+                durationUnit = months
+                type = cookie_http+html
+                provider = TawkTo
+            }
+
+            ss {
+                duration =
+                durationUnit = session
+                type = cookie_http+html
+                provider = TawkTo
+            }
+
+            TawkConnectionTime {
+                duration =
+                durationUnit = session
+                type = cookie_http+html
+                provider = TawkTo
+            }
+
+            Tawk_xxxxxxx {
+                duration = 6
+                durationUnit = months
+                type = cookie_http+html
+                provider = TawkTo
+            }
+        }
+    }
+}

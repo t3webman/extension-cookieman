@@ -1,0 +1,50 @@
+plugin.tx_cookieman.settings.trackingObjects {
+    Smartsupp {
+        inject (
+            <script data-what="Smartsupp" src="/typo3conf/ext/cookieman/Resources/Public/Js/Injects/example-inject.js"></script>
+        )
+# example:
+#        inject (
+# <script>
+#   var _smartsupp = _smartsupp || {};
+#   _smartsupp.key = 'YOUR_KEY';
+#   window.smartsupp||(function(d) {
+#     var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
+#     s=d.getElementsByTagName('script')[0];c=d.createElement('script');
+#     c.type='text/javascript';c.charset='utf-8';c.async=true;
+#     c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
+#   })(document);
+# </script>
+#        )
+        show {
+            # https://www.smartsupp.com/help/privacy/
+            ssupp\.vid {
+                duration = 6
+                durationUnit = months
+                type = cookie_http+html
+                provider = Smartsupp
+            }
+
+            ssupp\.visits {
+                duration = 6
+                durationUnit = months
+                type = cookie_http+html
+                provider = Smartsupp
+            }
+
+            AWSALB {
+                duration = 1
+                durationUnit = week
+                type = cookie_http+html
+                provider = Smartsupp
+            }
+
+            AWSALBCORS {
+                duration = 1
+                durationUnit = week
+                type = cookie_http+html
+                provider = Smartsupp
+            }
+        }
+    }
+}
